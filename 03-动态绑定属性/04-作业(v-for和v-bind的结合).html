@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 需求: 点击列表中的哪一项, 那么该项的文字变成红色 -->
+  <div id="app">
+    <ul>
+      <li v-bind:class="{active: isActive}" v-on:click="liClick" v-for="(m, index) in movies">{{index}}{{m}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        movies: ['火影忍者', '海上钢琴师', '美国派', '进击的巨人'],
+        isActive: true
+      },
+      methods: {
+        liClick: function() {
+          this.isActive = !this.isActive
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

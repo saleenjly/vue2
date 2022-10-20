@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h2>总价格: {{TotalPrice}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          { id: 110, name: 'Unix编程艺术', price: 119 },
+          { id: 111, name: '代码大全', price: 105 },
+          { id: 112, name: '深入理解计算机系统', price: 98 },
+          { id: 113, name: '现代操作系统', price: 87 }
+        ]
+      },
+      computed: {
+        TotalPrice: function () {
+          const init = 0
+          return this.books.reduce(function (pre, current) {
+            return pre + current.price
+          },init)
+        }
+      },
+
+      // computed: {
+      //   TotalPrice: function () {
+      //     let result = 0
+      //     for (let i = 0; i < this.books.length; i++) {
+      //       result += this.books[i].price
+      //     }
+      //     return result
+      //   }
+      // },
+    })
+
+
+
+
+    // reduce用法回顾
+    const array = [
+      { price: 1 },
+      { price: 2 },
+      { price: 3 },
+      { price: 4 },
+    ]
+
+    let initialValue = 0
+    const res = array.reduce(function (pre, now) {
+      return pre + now.price
+    }, initialValue)
+    console.log(res)
+
+
+    let initialValue1 = 0
+    let array1 =  [{ x: 1 }, { x: 2 }, { x: 3 }]
+    let sum = array1.reduce(function (previousValue, currentValue) {
+      return previousValue + currentValue.x
+    }, initialValue1)
+
+    console.log(sum) // logs 6
+
+  </script>
+
+</body>
+
+</html>
