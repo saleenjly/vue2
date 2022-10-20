@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-
+  
   <div id="app">
     <h2 v-if="isShow">
       <div>abc</div>
@@ -17,6 +17,7 @@
       <div>abc</div>
       {{message}}
     </h2>
+    <h1 v-else>isShow为false时,显示我</h1>
     </div>
     
     <script src="../js/vue.js"></script>
@@ -29,6 +30,6 @@
         }
       })
     </script>
-  
+
 </body>
 </html>
