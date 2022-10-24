@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="app">
+    <table>
+      <tr>
+        <th>书籍名称</th>
+        <th>出版日期</th>
+        <th>价格</th>
+        <th>购买数量</th>
+        <th>操作</th>
+      </tr>  
+    </table>
+
+
+  
+  </div>
+  
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: 'app',
+      data: {
+        books: [
+          { name: '算法导论', date: '2006-9', price: 85 },
+          { name: 'UNIX编程艺术', date: '2006-2', price: 59 },
+          { name: '编程珠玑', date: '2008-10', price: 39 },
+          { name: '代码大全', date: '2006-3', price: 128 },
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

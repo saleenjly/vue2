@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- 1.修饰符: lazy 只有在失去焦点或者回车时才会更新-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+    <!-- 2.修饰符：number  默认情况下 输入框中字母和数字都会被当做字符串类型处理 number让输入框中内容转成数字类型-->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}-{{typeof age}}</h2>
+
+    <!-- 3.修饰符: trim  过滤内容左右两边的空格-->
+    <input type="text" v-model.trim="name">
+    <h2>您输入的名字:{{name}}</h2>
+  </div>
+    
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好啊',
+          age: 1,
+          name: ''
+        }
+      })
+    </script>
+
+</body>
+</html>

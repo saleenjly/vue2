@@ -9,13 +9,13 @@
 <body>
   
   <div id="app">
-    <!-- 1. .stop修饰符的使用 -->
+    <!-- 1. .stop修饰符的使用 阻止单击事件继续传播-->
     <div @click="divClick">
       aaaa
       <button @click.stop="btnClick">按钮</button>
     </div>
 
-    <!-- 2. .prevent修饰符的使用 -->
+    <!-- 2. .prevent修饰符的使用  提交事件不再重载页面-->
     <form action="baidu">
       <input type="submit" value="提交" @click.prevent="submitClick">
     </form>
