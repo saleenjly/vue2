@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 父组件模板 -->
+  <div id="app">
+    <div>
+      <cpn :cmovies="movies"
+            @item-click="appClick"></cpn>
+    </div>
+  </div>
+
+  <!-- 子组件模板 -->
+  <template id="cpn">
+    <div>
+      <h2>呵呵{{title}}</h2>
+      <p>我是内容,哈哈哈</p>
+      <ul>
+        <li v-for="item in cmovies">{{item}}</li>
+      </ul>
+      <button v-for="item in categories"
+              @click="btnClick(item)">
+              {{item.name}}
+      </button>
+    </div>
+  </template>
+
+  <script src="/vue2/js/vue.js"></script>
+  <script>
+
+    //父组件
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '哈哈',
+        movies: ['海王', '海贼王', '海尔兄弟']
+      },
+      methods: {
+        appClick(item) {
+          console.log('appClick',item)
+        }
+      },
+      // 子组件
+      components: {
+        cpn: {
+          template: '#cpn',
+          //date写在一个对象里,注意
+          props: {
+            cmovies: {
+              type: Array,
+              default: []
+            }
+          },
+          data() {
+            return {
+              title: 'abc',
+              categories: [
+                { id: 'aaa', name: '热门推荐' },
+                { id: 'bbb', name: '手机数码' },
+                { id: 'ccc', name: '家用家电' },
+                { id: 'ddd', name: '电脑办公' },
+              ]
+            }
+          },
+          methods:{
+            btnClick(item) {
+              this.$emit('item-click', item)
+            }
+          }
+        },
+        
+      }
+    })
+
+  </script>
+</body>
+
+</html>

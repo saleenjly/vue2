@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- <cpn></cpn>
+
+    <cpn>
+      <button>按钮</button>
+    </cpn>
+
+    <cpn>
+      <h2>22</h2>
+    </cpn> -->
+
+    <cpn>
+      <button slot="left">呵呵</button>
+      <h2 slot="left">啊啊啊</h2>
+    </cpn>
+
+    <cpn>
+      <template slot-scope="slot">
+        <span>{{slot.data}}</span>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot :data="names"></slot>
+      <h2>我是标题</h2>
+      <p>哈哈哈哈</p>
+      <slot></slot>
+      <slot name="left"></slot>
+      <slot name="right"></slot>
+      </slot>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              names: ['一','二','三']
+            }
+          }
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
